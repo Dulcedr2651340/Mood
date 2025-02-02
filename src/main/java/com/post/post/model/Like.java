@@ -1,32 +1,40 @@
 package com.post.post.model;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @Entity
+@Table( name = "likes")
 public class Like {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @CreationTimestamp  // Asigna la fecha de creación automáticamente
     private LocalDateTime createdAt;
 
-    private Integer postId; // ID del Post relacionado
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    private Integer userId; // ID del Usuario que dio Like
+    @ManyToOne
+    @JoinColumn(name = "post_id")
+    private Post post;
 
     public Like() {
     }
 
-    public Like(Integer id, LocalDateTime createdAt, Integer postId, Integer userId) {
+    public Like(Integer id, LocalDateTime createdAt) {
         this.id = id;
         this.createdAt = createdAt;
-        this.postId = postId;
-        this.userId = userId;
+
     }
 
     @Override
@@ -34,8 +42,8 @@ public class Like {
         return "Like{" +
                 "id=" + id +
                 ", createdAt=" + createdAt +
-                ", postId=" + postId +
-                ", userId=" + userId +
+                ", user=" + user +
+                ", post=" + post +
                 '}';
     }
 }
