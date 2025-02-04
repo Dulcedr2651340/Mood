@@ -19,7 +19,7 @@ public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Integer id;
     private String title;
     private String content;
     private String image;
@@ -37,10 +37,10 @@ public class Post {
     private User user;
 
     @OneToMany(mappedBy = "post")
-    private Set<Comment> comments = new HashSet<>();
+    private final Set<Comment> comments = new HashSet<>();
 
     @OneToMany(mappedBy = "post")
-    private Set<Like> likes = new HashSet<>();
+    private final Set<Like> likes = new HashSet<>();
 
     @ManyToMany
     @JoinTable(
@@ -48,13 +48,13 @@ public class Post {
             joinColumns = @JoinColumn(name = "post_id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
-    private Set<Tag> tags = new HashSet<>();
+    private final Set<Tag> tags = new HashSet<>();
 
 
     public Post() {
     }
 
-    public Post(String id, String title, String content, String image, String mediaUrl, LocalDateTime createdAt, LocalDateTime updatedAt, User user, Set<Comment> comments, Set<Like> likes, Set<Tag> tags) {
+    public Post(Integer id, String title, String content, String image, String mediaUrl, LocalDateTime createdAt, LocalDateTime updatedAt, User user) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -63,8 +63,22 @@ public class Post {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.user = user;
-        this.comments = comments;
-        this.likes = likes;
-        this.tags = tags;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", image='" + image + '\'' +
+                ", mediaUrl='" + mediaUrl + '\'' +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                ", user=" + user +
+                ", comments=" + comments +
+                ", likes=" + likes +
+                ", tags=" + tags +
+                '}';
     }
 }

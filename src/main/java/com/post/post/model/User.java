@@ -27,19 +27,19 @@ public class User {
 
     //Relación
     @OneToMany(mappedBy = "user")
-    private Set<Post> posts = new HashSet<>();
+    private final Set<Post> posts = new HashSet<>();
 
     @OneToMany(mappedBy = "user")
-    private Set<Comment> comments = new HashSet<>();
+    private final Set<Comment> comments = new HashSet<>();
 
     @OneToMany(mappedBy = "user")
-    private Set<Like> likes = new HashSet<>();
+    private final Set<Like> likes = new HashSet<>();
 
 
     public User() {
     }
 
-    public User(Integer id, String name, String username, String email, String phone, String role, String password, Set<Post> posts, Set<Comment> comments, Set<Like> likes) {
+    public User(Integer id, String name, String username, String email, String phone, String role, String password) {
         this.id = id;
         this.name = name;
         this.username = username;
@@ -47,9 +47,6 @@ public class User {
         this.phone = phone;
         this.role = role;
         this.password = password;
-        this.posts = posts;
-        this.comments = comments;
-        this.likes = likes;
     }
 
     @Override
