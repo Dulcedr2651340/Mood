@@ -1,4 +1,4 @@
-package com.post.post.model;
+package com.post.post.model.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -8,7 +8,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Setter
@@ -20,9 +19,17 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(nullable = false, length = 255)
     private String title;
+
+    @Column(columnDefinition = "TEXT")
     private String content;
+
+    @Column(name = "image_url")
     private String image;
+
+    @Column(name = "media_url", length = 500)
     private String mediaUrl;
 
     @CreationTimestamp

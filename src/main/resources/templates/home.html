@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Mi Diseño Meme Coin</title>
+  <!-- Aquí enlazamos nuestro CSS -->
+  <link rel="stylesheet" th:href="@{/styles1.css}" />
 </head>
 <body>
-$END$
+
+<!-- Sección principal (Hero) -->
+<section class="hero">
+  <div class="hero-content">
+    <h2 class="hero-title">Sunblake Is A Meme Coin Bringing Fun And Energy To Crypto</h2>
+    <p class="hero-description">Ready To Shine And Light Up The Decentralized World</p>
+    <button class="hero-button">Buy Now</button>
+  </div>
+
+  <!-- Imagen principal del personaje -->
+  <div class="hero-image">
+    <img src="personaje.png" alt="Personaje Meme Coin">
+  </div>
+</section>
+
+<!-- Sección secundaria (info, etc.) -->
+<section class="info">
+  <h3>Más información</h3>
+  <p>Aquí puedes poner texto adicional, detalles sobre el proyecto, roadmap, etc.</p>
+</section>
+
 </body>
 </html>

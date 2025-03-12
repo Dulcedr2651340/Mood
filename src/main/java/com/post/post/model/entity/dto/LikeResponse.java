@@ -1,2 +1,4 @@
-package com.post.post.model.entity.dto;public class LikeResponse {
+package com.post.post.model.entity.dto;
+
+public class LikeResponse {
 }

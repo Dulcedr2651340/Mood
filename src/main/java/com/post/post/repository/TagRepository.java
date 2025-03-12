@@ -1,2 +1,7 @@
-package com.post.post.repository;public interface TagRepository {
+package com.post.post.repository;
+
+import com.post.post.model.entity.Tag;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TagRepository extends JpaRepository<Tag, Integer> {
 }

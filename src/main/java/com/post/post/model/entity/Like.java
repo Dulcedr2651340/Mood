@@ -1,4 +1,4 @@
-package com.post.post.model;
+package com.post.post.model.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

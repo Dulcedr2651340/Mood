@@ -1,0 +1,98 @@
+/* Reseteo básico (opcional) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Tipografía general */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #fff; /* Fondo blanco */
+  color: #333;
+}
+
+/* Sección principal (Hero) */
+.hero {
+  display: flex;
+  flex-wrap: wrap; /* Para que se ajuste en pantallas pequeñas */
+  align-items: center;
+  justify-content: space-around;
+  padding: 40px 20px;
+  position: relative; /* Importante si vamos a poner doodles con position absolute */
+}
+
+/* Contenedor de texto en la sección principal */
+.hero-content {
+  max-width: 500px;
+  margin: 20px;
+}
+
+.hero-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+.hero-description {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+.hero-button {
+  background-color: #fdd835;
+  color: #000;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.hero-button:hover {
+  background-color: #ffc107;
+}
+
+/* Imagen del personaje */
+.hero-image img {
+  max-width: 300px; /* Ajusta el tamaño de la imagen */
+  width: 100%;
+  height: auto;
+  margin: 20px;
+}
+
+/* Sección de info */
+.info {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #f3f3f3;
+}
+
+
+/* ----------------------------------
+   3. Doodles o elementos dispersos
+   ---------------------------------- */
+
+/*
+  Supongamos que tienes algunos doodles (pequeñas imágenes PNG
+  con fondo transparente). Los colocaremos con position:absolute
+  para que aparezcan "flotando" en el fondo.
+*/
+
+/* Ejemplo: doodle en la esquina superior izquierda */
+.doodle-1 {
+  position: absolute;
+  top: 50px;
+  left: 30px;
+  width: 80px;
+  height: auto;
+  z-index: -1; /* Para que quede detrás del texto */
+}
+
+/* Ejemplo: doodle en la esquina superior derecha */
+.doodle-2 {
+  position: absolute;
+  top: 80px;
+  right: 40px;
+  width: 60px;
+  height: auto;
+  z-index: -1;
+}
+
+/* Y así puedes añadir más doodles con diferentes posiciones */

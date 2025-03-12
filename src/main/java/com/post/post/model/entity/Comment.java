@@ -1,4 +1,4 @@
-package com.post.post.model;
+package com.post.post.model.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -16,6 +16,8 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column
     private String content;
 
     @CreationTimestamp

@@ -1,2 +1,7 @@
-package com.post.post.repository;public interface PostRepository {
+package com.post.post.repository;
+
+import com.post.post.model.entity.Post;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PostRepository extends JpaRepository<Post, Integer> {
 }

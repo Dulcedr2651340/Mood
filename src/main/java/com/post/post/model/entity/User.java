@@ -1,9 +1,11 @@
-package com.post.post.model;
+package com.post.post.model.entity;
 
+import com.post.post.model.entity.Comment;
+import com.post.post.model.entity.Like;
+import com.post.post.model.entity.Post;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.HashSet;
 import java.util.Set;

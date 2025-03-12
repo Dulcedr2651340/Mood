@@ -1,2 +1,4 @@
-package com.post.post.model.entity.dto;public class CommentResponse {
+package com.post.post.model.entity.dto;
+
+public class CommentResponse {
 }

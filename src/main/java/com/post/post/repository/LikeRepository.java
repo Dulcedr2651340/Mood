@@ -1,2 +1,7 @@
-package com.post.post.repository;public interface LikeRepository {
+package com.post.post.repository;
+
+import com.post.post.model.entity.Like;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface LikeRepository extends JpaRepository<Like, Integer> {
 }
