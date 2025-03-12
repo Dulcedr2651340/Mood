@@ -21,10 +21,10 @@ public class LikeRequest {
     private LocalDateTime createdAt;
 
     @NotNull(message = "UserId cannot be null.")
-    private User userIds;
+    private Integer userId;
 
     @NotNull(message = "UserId cannot be null.")
-    private Post postIds;
+    private Integer postId;
 
 
 

@@ -23,9 +23,9 @@ public class CommentRequest {
     private LocalDateTime createdAt;
 
     @NotNull(message = "The userIds cannot be empty or null.")
-    private Integer userIds;
+    private Integer userId;
 
     @NotNull(message = "The postIds cannot be empty or null.")
-    private Integer postIds;
+    private Integer postId;
 
 }
