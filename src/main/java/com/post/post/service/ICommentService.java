@@ -3,6 +3,7 @@ package com.post.post.service;
 import com.post.post.model.entity.Comment;
 import com.post.post.model.entity.dto.CommentRequest;
 import com.post.post.model.entity.dto.CommentResponse;
+import com.post.post.model.entity.dto.LikeResponse;
 
 import java.util.List;
 import java.util.Set;
@@ -29,4 +30,5 @@ public interface ICommentService {
 
     //Eliminar de manera lógica por su ID
     void deleteCommentById(Integer id);
+
 }
