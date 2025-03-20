@@ -14,12 +14,15 @@ public interface ILikeService {
     //Guardar un nuevo like
     LikeResponse saveLike(LikeRequest likeRequest);
 
-    //Obtener Comentarios por un conjunto de Ids
-    List<CommentResponse> getLikesByUserId(Integer userId);
+    //Buscar Like por Id
+    LikeResponse findById(Integer id);
 
-    //Obtener Comentarios por un conjunto de Ids
-    List<CommentResponse> getLikesByPostId(Integer postId);
+    //Obtener Likes por un conjunto de Ids por Usuario
+    List<LikeResponse> getLikesByUserId(Integer userId);
 
-    //Eliminar de manera logica por su ID
+    //Obtener Likes por un conjunto de Ids por Post
+    List<LikeResponse> getLikesByPostId(Integer postId);
+
+    //Eliminar de manera lógica por su ID
     void deleteLikeById(Integer id);
 }
