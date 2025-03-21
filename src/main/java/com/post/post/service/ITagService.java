@@ -12,7 +12,7 @@ public interface ITagService {
     List<TagResponse> getAllTags();
 
     //
-    TagResponse savePost(TagRequest tagRequest);
+    TagResponse saveTag(TagRequest tagRequest);
 
     //
     TagResponse updateTag(Integer id, TagRequest tagRequest);

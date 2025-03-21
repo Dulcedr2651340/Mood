@@ -10,25 +10,25 @@ import java.util.Set;
 
 public interface ICommentService {
 
-    //Listar todos los comentarios
+    // Lista todos los comentarios existentes en la bd
     List<CommentResponse> getAllComments();
 
-    //Guardar un nuevo comentario
+    // Guardar un nuevo comentario
     CommentResponse saveComment(CommentRequest commentRequest);
 
-    //Actualizar el comentario existente
+    // Actualizar el comentario existente por su ID
     CommentResponse updateComment(Integer id, CommentRequest commentRequest);
 
-    //Buscar un album por su ID
+    // Buscar un comentario por su ID
     CommentResponse findById(Integer id);
 
-    //Obtener Comentarios por un conjunto de Ids
+    // Obtener comentarios hechos por un usuario específico usando su ID
     List<CommentResponse> getCommentsByUserId(Integer userId);
 
-    //Obtener Comentarios por un conjunto de Ids
+    // Obtener comentarios pertenecientes a un post específico usando su ID
     List<CommentResponse> getCommentsByPostId(Integer postId);
 
-    //Eliminar de manera lógica por su ID
+    // Eliminar un comentario de manera lógica por su ID
     void deleteCommentById(Integer id);
 
 }
