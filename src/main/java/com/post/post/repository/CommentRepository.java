@@ -7,8 +7,10 @@ import java.util.List;
 
 public interface CommentRepository extends JpaRepository<Comment, Integer> {
 
+    // Buscar comentarios por el ID del usuario
     List<Comment> findByUserId(Integer userId);
 
+    // Buscar comentarios por el ID del post
     List<Comment> findByPostId(Integer postId);
 
 }
