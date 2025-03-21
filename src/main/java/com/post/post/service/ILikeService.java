@@ -8,21 +8,21 @@ import java.util.List;
 
 public interface ILikeService {
 
-    //Listar todos los likes
+    // Listar todos los likes existentes
     List<LikeResponse> getAllLikes();
 
     //Guardar un nuevo like
     LikeResponse saveLike(LikeRequest likeRequest);
 
-    //Buscar Like por Id
+    // Buscar un like por su ID
     LikeResponse findById(Integer id);
 
-    //Obtener Likes por un conjunto de Ids por Usuario
+    // Obtener likes realizados por un usuario específico usando su ID
     List<LikeResponse> getLikesByUserId(Integer userId);
 
-    //Obtener Likes por un conjunto de Ids por Post
+    // Obtener likes pertenecientes a un post específico usando su ID
     List<LikeResponse> getLikesByPostId(Integer postId);
 
-    //Eliminar de manera lógica por su ID
+    // Eliminar un like de manera lógica usando su ID
     void deleteLikeById(Integer id);
 }
