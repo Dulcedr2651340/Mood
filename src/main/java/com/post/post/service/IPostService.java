@@ -8,24 +8,24 @@ import java.util.List;
 
 public interface IPostService {
 
-    //Listar todos los post
+    // Listar todos los posts existentes
     List<PostResponse> getAllPosts();
 
-    //Guardar un nuevo post
+    // Guardar un nuevo post
     PostResponse savePost(PostRequest postRequest);
 
-    //Editar un Post por Id
+    // Editar un post existente usando su ID
     PostResponse updatePost(Integer id, PostRequest postRequest);
 
-    //Buscar un album por su ID
+    // Buscar un post por su ID
     PostResponse findById(Integer id);
 
-    //Obtener Post por un conjunto de Ids por Usuario
+    // Obtener posts creados por un usuario específico usando su ID
     List<PostResponse> getPostsByUserId(Integer userId);
 
-    //Obtener Post por un conjunto de Ids por Tags
+    // Obtener posts asociados a un tag específico usando su ID
     List<PostResponse> getPostsByTagId(Integer tagId);
 
-    //Eliminar lógicamente por Id
+    // Eliminar un post de manera lógica usando su ID
     void deletePostById(Integer id);
 }
