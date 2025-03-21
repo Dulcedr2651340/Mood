@@ -1,7 +1,9 @@
 package com.post.post.model.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -10,6 +12,8 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table( name = "likes")
 public class Like {
 
@@ -28,22 +32,4 @@ public class Like {
     @JoinColumn(name = "post_id")
     private Post post;
 
-    public Like() {
-    }
-
-    public Like(Integer id, LocalDateTime createdAt) {
-        this.id = id;
-        this.createdAt = createdAt;
-
-    }
-
-    @Override
-    public String toString() {
-        return "Like{" +
-                "id=" + id +
-                ", createdAt=" + createdAt +
-                ", user=" + user +
-                ", post=" + post +
-                '}';
-    }
 }

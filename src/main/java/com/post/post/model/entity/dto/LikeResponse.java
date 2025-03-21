@@ -14,7 +14,7 @@ public class LikeResponse {
 
     private LocalDateTime createdAt;
 
-    private User userId;
+    private Integer userId;
 
-    private Post postId;
+    private Integer postId;
 }

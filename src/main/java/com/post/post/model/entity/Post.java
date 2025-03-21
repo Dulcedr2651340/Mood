@@ -1,7 +1,9 @@
 package com.post.post.model.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -13,6 +15,8 @@ import java.util.Set;
 @Setter
 @Getter
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table( name = "posts")
 public class Post {
 
@@ -38,54 +42,26 @@ public class Post {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    //Class User
+    // Relación con User (Muchos posts pertenecen a un usuario)
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
+    // Un Post tiene varios Comentarios
     @OneToMany(mappedBy = "post")
-    private final Set<Comment> comments = new HashSet<>();
+    private Set<Comment> comments = new HashSet<>();
 
+    // Un Post tiene varios Likes
     @OneToMany(mappedBy = "post")
-    private final Set<Like> likes = new HashSet<>();
+    private Set<Like> likes = new HashSet<>();
 
+    // Un Post puede tener varios Tags (etiquetas)
     @ManyToMany
     @JoinTable(
             name = "post_tags",
             joinColumns = @JoinColumn(name = "post_id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
-    private final Set<Tag> tags = new HashSet<>();
 
-
-    public Post() {
-    }
-
-    public Post(Integer id, String title, String content, String image, String mediaUrl, LocalDateTime createdAt, LocalDateTime updatedAt, User user) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-        this.image = image;
-        this.mediaUrl = mediaUrl;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-        this.user = user;
-    }
-
-    @Override
-    public String toString() {
-        return "Post{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                ", image='" + image + '\'' +
-                ", mediaUrl='" + mediaUrl + '\'' +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
-                ", user=" + user +
-                ", comments=" + comments +
-                ", likes=" + likes +
-                ", tags=" + tags +
-                '}';
-    }
+    private Set<Tag> tags = new HashSet<>();
 }

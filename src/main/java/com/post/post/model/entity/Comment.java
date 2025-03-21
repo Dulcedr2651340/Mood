@@ -1,7 +1,9 @@
 package com.post.post.model.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -10,6 +12,8 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table( name = "comments")
 public class Comment {
 
@@ -23,34 +27,14 @@ public class Comment {
     @CreationTimestamp
     private LocalDateTime createdAt;
 
+    // Relación con User (Muchos comentarios pertenecen a un usuario)
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
+    // Relación con Post (Muchos comentarios pertenecen a un post)
     @ManyToOne
     @JoinColumn(name = "post_id")
     private Post post;
 
-
-    public Comment() {
-    }
-
-    public Comment(Integer id, String content, LocalDateTime createdAt, User user, Post post) {
-        this.id = id;
-        this.content = content;
-        this.createdAt = createdAt;
-        this.user = user;
-        this.post = post;
-    }
-
-    @Override
-    public String toString() {
-        return "Comment{" +
-                "id=" + id +
-                ", content='" + content + '\'' +
-                ", createdAt=" + createdAt +
-                ", user=" + user +
-                ", post=" + post +
-                '}';
-    }
 }

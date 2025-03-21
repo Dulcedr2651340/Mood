@@ -4,7 +4,9 @@ import com.post.post.model.entity.Comment;
 import com.post.post.model.entity.Like;
 import com.post.post.model.entity.Post;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.HashSet;
@@ -13,6 +15,8 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "users")
 public class User {
 
@@ -37,33 +41,4 @@ public class User {
     @OneToMany(mappedBy = "user")
     private final Set<Like> likes = new HashSet<>();
 
-
-    public User() {
-    }
-
-    public User(Integer id, String name, String username, String email, String phone, String role, String password) {
-        this.id = id;
-        this.name = name;
-        this.username = username;
-        this.email = email;
-        this.phone = phone;
-        this.role = role;
-        this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", username='" + username + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", role='" + role + '\'' +
-                ", password='" + password + '\'' +
-                ", posts=" + posts +
-                ", comments=" + comments +
-                ", likes=" + likes +
-                '}';
-    }
 }
