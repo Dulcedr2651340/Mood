@@ -7,6 +7,9 @@ import java.util.List;
 
 public interface CommentRepository extends JpaRepository<Comment, Integer> {
 
+    //Devuelve todos los comentarios cuyo estado es true(activo)
+    List<Comment> findAllByStatusTrue();
+
     // Buscar comentarios por el ID del usuario
     List<Comment> findByUserId(Integer userId);
 

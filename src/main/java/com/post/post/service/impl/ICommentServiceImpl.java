@@ -57,8 +57,10 @@ public class ICommentServiceImpl implements ICommentService {
 
     @Override
     public CommentResponse updateComment(Integer id, CommentRequest commentRequest) {
+        log.info("Attempting to update Comment with ID: {}", id);
 
-        return;
+        return commentRepository.findById(id);
+
     }
 
     @Override
