@@ -135,7 +135,17 @@ public class ICommentServiceImpl implements ICommentService {
 
     @Override
     public void deleteCommentById(Integer id) {
+        log.info("Attempting to delete comment with ID: {}", id); // Log para indicar que se inicia el proceso de eliminación
 
+        // Buscar el comentario por ID, y lanzar una excepción si no se encuentra
+        Comment comment = commentRepository.findById(id)
+                .orElseThrow(() -> {
+                    log.error("Comment with ID: {} not found", id); // Log de error si no se encuentra el comentario
+                    return new RuntimeException("Comment with ID " + id + " not found");
+                });
+
+        // Eliminar el comentario del repositorio
+        commentRepository.delete(comment);
+        log.info("Comment with ID: {} deleted successfully", id); // Confirmación de eliminación exitosa
     }
-
 }
