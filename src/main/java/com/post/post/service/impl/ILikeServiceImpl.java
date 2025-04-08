@@ -1,6 +1,7 @@
 package com.post.post.service.impl;
 
 import com.post.post.mapper.LikeMapper;
+import com.post.post.model.entity.Like;
 import com.post.post.model.entity.dto.LikeRequest;
 import com.post.post.model.entity.dto.LikeResponse;
 import com.post.post.repository.LikeRepository;
@@ -33,7 +34,18 @@ public class ILikeServiceImpl implements ILikeService {
 
     @Override
     public LikeResponse saveLike(LikeRequest likeRequest) {
-        return null;
+        log.info("Saving Like: {}", likeRequest);
+
+        // Convertimos el DTO en entidad (Like)
+        Like like = likeMapper.toEntity(likeRequest);
+        log.info("Mapped Like entity: {}", like);
+
+        //Guardamos el Like en la base de datos
+        Like savedLike = likeRepository.save(like);
+        log.info("Like saved successfully with ID", savedLike.getId());
+
+        //Devolvemos el DTO (LikeResponse) convertido desde la entidad guardada
+        return likeMapper.toLikeResponse(savedLike);
     }
 
     @Override
