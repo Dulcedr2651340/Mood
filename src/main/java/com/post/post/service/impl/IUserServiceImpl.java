@@ -1,6 +1,7 @@
 package com.post.post.service.impl;
 
 import com.post.post.mapper.UserMapper;
+import com.post.post.model.entity.User;
 import com.post.post.model.entity.dto.UserRequest;
 import com.post.post.model.entity.dto.UserResponse;
 import com.post.post.repository.UserRepository;
@@ -26,7 +27,17 @@ public class IUserServiceImpl implements IUserService {
 
     @Override
     public UserResponse saveUser(UserRequest userRequest) {
-        return null;
+        log.info("Saving User: {}", userRequest);
+
+        //Convertimos el DTO a una entidad (User)
+        User user = userMapper.toEntity(userRequest);
+        log.info("Mapped entity User", user);
+
+        //Guardamos la entidad user
+        User saveUser = userRepository.save(user);
+        log.info("User saved successfully with ID", saveUser.getId());
+
+        return userMapper.toUserResponse(saveUser);
     }
 
     @Override
