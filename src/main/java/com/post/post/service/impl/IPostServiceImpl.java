@@ -1,6 +1,7 @@
 package com.post.post.service.impl;
 
 import com.post.post.mapper.PostMapper;
+import com.post.post.model.entity.Post;
 import com.post.post.model.entity.dto.PostRequest;
 import com.post.post.model.entity.dto.PostResponse;
 import com.post.post.repository.PostRepository;
@@ -29,7 +30,18 @@ public class IPostServiceImpl implements IPostService {
 
     @Override
     public PostResponse savePost(PostRequest postRequest) {
-        return null;
+        log.info("Saving Post: {}", postRequest);
+
+        //Convertimos el DTO en entidad (Post)
+        Post post = postMapper.ToEntity(postRequest);
+        log.info("Mapped post entity: {}", post);
+
+        //Guardamos el Post en la base de datos
+        Post savedPost = postRepository.save(post);
+        log.info("Post saved successfully with ID", savedPost.getId());
+
+        //Devolvemos el DTO(PostResponse) convertido desde la entidad guardada
+        return postMapper.toPostResponse(savedPost);
     }
 
     @Override
