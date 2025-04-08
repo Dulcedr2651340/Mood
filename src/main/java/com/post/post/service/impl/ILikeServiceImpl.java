@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 public class ILikeServiceImpl implements ILikeService {
-    
+
     private PostRepository postRepository;
     private UserRepository userRepository;
 
