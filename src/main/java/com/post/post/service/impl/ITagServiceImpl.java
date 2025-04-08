@@ -1,6 +1,7 @@
 package com.post.post.service.impl;
 
 import com.post.post.mapper.TagMapper;
+import com.post.post.model.entity.Tag;
 import com.post.post.model.entity.dto.TagRequest;
 import com.post.post.model.entity.dto.TagResponse;
 import com.post.post.repository.TagRepository;
@@ -27,7 +28,18 @@ public class ITagServiceImpl implements ITagService {
 
     @Override
     public TagResponse saveTag(TagRequest tagRequest) {
-        return null;
+        log.info("Saving Tag: {} ", tagRequest);
+
+        //Convertimos el DTO en entidad (Tag)
+        Tag tag = tagMapper.toEntity(tagRequest);
+        log.info("Mapped tag entity: {}", tag);
+
+        //Guardamos el Tag en la base de datos
+        Tag saveTag = tagRepository.save(tag);
+        log.info("Tag saved successfully with ID", saveTag.getId());
+
+        //Devolvemos el DTO(tagResponse) convertido desde la identidad guardada
+        return tagMapper.toTagResponse(saveTag);
     }
 
     @Override
